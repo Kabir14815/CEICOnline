@@ -1,8 +1,12 @@
 import asyncio
 from motor.motor_asyncio import AsyncIOMotorClient
+import os
+from dotenv import load_dotenv
+
+load_dotenv("backend/.env")
 
 # Test connection directly
-MONGO_URL = "mongodb+srv://Task:1234@cluster0.lnxh7gs.mongodb.net/education_news?retryWrites=true&w=majority"
+MONGO_URL = os.getenv("MONGO_URL")
 
 async def test_connection():
     try:
