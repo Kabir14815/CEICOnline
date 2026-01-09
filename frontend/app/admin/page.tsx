@@ -26,7 +26,7 @@ interface StatsCardProps {
 
 const StatsCard = ({ title, value, icon: Icon, color, trend }: StatsCardProps) => {
   const colorClasses = {
-    purple: 'bg-purple-50 text-purple-600',
+    purple: 'bg-[#4051a4]/5 text-[#4051a4]',
     green: 'bg-green-50 text-green-600',
     orange: 'bg-orange-50 text-orange-600',
   };
@@ -188,33 +188,33 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-white text-black font-sans">
-      <Toaster position="top-right" theme="light" />
+      <Toaster position="top-right" toastOptions={{ style: { background: '#fff', color: '#333' } }} />
 
       {/* Top Navigation Bar */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="bg-[#A855F7] p-2 rounded-lg shadow-md">
+            <div className="bg-[#4051a4] p-2 rounded-lg shadow-md">
               <LayoutDashboard size={20} className="text-white" />
             </div>
-            <span className="font-black text-xl tracking-tight text-black">CMS <span className="text-[#A855F7]">Dashboard</span></span>
+            <span className="font-black text-xl tracking-tight text-black">CMS <span className="text-[#4051a4]">Dashboard</span></span>
           </div>
           <div className="flex items-center space-x-6">
             <div className="flex space-x-2 bg-gray-100 p-1 rounded-lg">
               <button
                 onClick={() => setActiveTab('news')}
-                className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'news' ? 'bg-white text-[#A855F7] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'news' ? 'bg-white text-[#4051a4] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
               >
                 News
               </button>
               <button
                 onClick={() => setActiveTab('updates')}
-                className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'updates' ? 'bg-white text-[#A855F7] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                className={`px-4 py-2 rounded-md text-sm font-bold transition-all ${activeTab === 'updates' ? 'bg-white text-[#4051a4] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
               >
                 Updates
               </button>
             </div>
-            <Link href="/" className="hidden md:block text-sm font-bold text-gray-600 hover:text-[#A855F7] transition-colors uppercase tracking-wider">
+            <Link href="/" className="hidden md:block text-sm font-bold text-gray-600 hover:text-[#4051a4] transition-colors uppercase tracking-wider">
               View Site
             </Link>
             <div className="flex items-center space-x-3 pl-6 border-l border-gray-200">
@@ -222,7 +222,7 @@ export default function AdminDashboard() {
                 <p className="text-sm font-bold text-black">Admin User</p>
                 <p className="text-xs text-gray-500">Editor</p>
               </div>
-              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#A855F7] to-[#7E22CE] flex items-center justify-center font-black text-sm text-white shadow-lg ring-2 ring-purple-100">
+              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#4051a4] to-[#2d3a7a] flex items-center justify-center font-black text-sm text-white shadow-lg ring-2 ring-[#4051a4]/20">
                 AD
               </div>
             </div>
@@ -266,14 +266,14 @@ export default function AdminDashboard() {
                     placeholder="Search articles..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm text-black focus:outline-none focus:border-[#A855F7] focus:ring-2 focus:ring-purple-100 transition-all shadow-sm placeholder-gray-400"
+                    className="w-full bg-white border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm text-black focus:outline-none focus:border-[#4051a4] focus:ring-2 focus:ring-[#4051a4]/20 transition-all shadow-sm placeholder-gray-400"
                   />
                 </div>
                 <div className="relative w-full md:w-48">
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="w-full bg-white border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm text-black focus:outline-none focus:border-[#A855F7] focus:ring-2 focus:ring-purple-100 appearance-none cursor-pointer shadow-sm font-medium"
+                    className="w-full bg-white border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm text-black focus:outline-none focus:border-[#4051a4] focus:ring-2 focus:ring-[#4051a4]/20 appearance-none cursor-pointer shadow-sm font-medium"
                   >
                     <option value="all">All Status</option>
                     <option value="published">Published</option>
@@ -285,7 +285,7 @@ export default function AdminDashboard() {
 
               <Link
                 href="/admin/create"
-                className="w-full md:w-auto flex items-center justify-center space-x-2 bg-[#A855F7] hover:bg-[#9333EA] text-white px-6 py-3 rounded-xl transition-all duration-200 font-bold text-sm shadow-lg hover:shadow-purple-500/20 transform hover:-translate-y-0.5"
+                className="w-full md:w-auto flex items-center justify-center space-x-2 bg-[#4051a4] hover:bg-[#2d3a7a] text-white px-6 py-3 rounded-xl transition-all duration-200 font-bold text-sm shadow-lg hover:shadow-[#4051a4]/20 transform hover:-translate-y-0.5"
               >
                 <Plus size={18} />
                 <span>Create New Article</span>
@@ -357,7 +357,7 @@ export default function AdminDashboard() {
                             <div className="flex items-center justify-end space-x-2">
                               <Link
                                 href={`/admin/edit/${news._id}`}
-                                className="p-2 text-gray-400 hover:text-[#A855F7] hover:bg-purple-50 rounded-lg transition-all"
+                                className="p-2 text-gray-400 hover:text-[#4051a4] hover:bg-[#4051a4]/5 rounded-lg transition-all"
                                 title="Edit"
                               >
                                 <Edit size={18} />
@@ -386,7 +386,7 @@ export default function AdminDashboard() {
               <h2 className="text-2xl font-black text-black">Manage Updates</h2>
               <button
                 onClick={() => openUpdateModal()}
-                className="flex items-center space-x-2 bg-[#A855F7] hover:bg-[#9333EA] text-white px-6 py-3 rounded-xl transition-all font-bold text-sm shadow-lg"
+                className="flex items-center space-x-2 bg-[#4051a4] hover:bg-[#2d3a7a] text-white px-6 py-3 rounded-xl transition-all font-bold text-sm shadow-lg"
               >
                 <Plus size={18} />
                 <span>Add New Update</span>
@@ -397,10 +397,10 @@ export default function AdminDashboard() {
               {updatesList.map((update) => (
                 <div key={update._id} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow relative group">
                   <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button onClick={() => openUpdateModal(update)} className="p-1 text-gray-400 hover:text-[#A855F7]"><Edit size={16} /></button>
+                    <button onClick={() => openUpdateModal(update)} className="p-1 text-gray-400 hover:text-[#4051a4]"><Edit size={16} /></button>
                     <button onClick={() => handleDeleteUpdate(update._id)} className="p-1 text-gray-400 hover:text-red-500"><Trash2 size={16} /></button>
                   </div>
-                  <h3 className="font-black text-lg mb-2 uppercase text-[#A855F7]">{update.title}</h3>
+                  <h3 className="font-black text-lg mb-2 uppercase text-[#4051a4]">{update.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{update.content}</p>
                   <span className="text-xs text-gray-400 font-mono">{new Date(update.created_at).toLocaleDateString()}</span>
                 </div>
@@ -419,7 +419,7 @@ export default function AdminDashboard() {
                         type="text"
                         value={currentUpdate.title}
                         onChange={(e) => setCurrentUpdate({ ...currentUpdate, title: e.target.value })}
-                        className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#A855F7]"
+                        className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#4051a4]"
                       />
                     </div>
                     <div>
@@ -427,7 +427,7 @@ export default function AdminDashboard() {
                       <textarea
                         value={currentUpdate.content}
                         onChange={(e) => setCurrentUpdate({ ...currentUpdate, content: e.target.value })}
-                        className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#A855F7] h-24"
+                        className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:border-[#4051a4] h-24"
                       />
                     </div>
                     <div className="flex justify-end space-x-4 mt-6">
@@ -439,7 +439,7 @@ export default function AdminDashboard() {
                       </button>
                       <button
                         onClick={handleSaveUpdate}
-                        className="bg-[#A855F7] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#9333EA]"
+                        className="bg-[#4051a4] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#2d3a7a]"
                       >
                         Save
                       </button>

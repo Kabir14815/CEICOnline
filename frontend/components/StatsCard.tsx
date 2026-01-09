@@ -10,14 +10,14 @@ interface StatsCardProps {
 
 export default function StatsCard({ title, value, icon: Icon, trend, color = "purple" }: StatsCardProps) {
   const colorClasses = {
-    purple: "bg-purple-500/10 text-purple-500",
+    purple: "bg-[#4051a4]/10 text-[#4051a4]",
     blue: "bg-blue-500/10 text-blue-500",
     green: "bg-green-500/10 text-green-500",
     orange: "bg-orange-500/10 text-orange-500",
   };
 
   return (
-    <div className="bg-white border border-[#E5E7EB] p-6 rounded-xl hover:border-purple-500/30 transition-all duration-300 shadow-sm">
+    <div className="bg-white border border-[#E5E7EB] p-6 rounded-xl hover:border-[#4051a4]/30 transition-all duration-300 shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <div className={`p-3 rounded-lg ${colorClasses[color as keyof typeof colorClasses]}`}>
           <Icon size={24} />

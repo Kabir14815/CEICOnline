@@ -31,7 +31,7 @@ export default function NewsDetail() {
 
   if (!news) return (
     <div className="min-h-screen bg-[#F9FAFB] flex items-center justify-center">
-      <div className="text-purple-600 animate-pulse">Loading...</div>
+      <div className="text-[#4051a4] animate-pulse">Loading...</div>
     </div>
   );
 
@@ -40,7 +40,7 @@ export default function NewsDetail() {
       <Navbar />
       <main className="container mx-auto px-4 py-12">
         <article className="max-w-3xl mx-auto">
-          <span className="text-purple-600 font-bold uppercase text-sm tracking-wider">{news.category}</span>
+          <span className="text-[#4051a4] font-bold uppercase text-sm tracking-wider">{news.category}</span>
           <h1 className="text-4xl font-bold mt-3 mb-4 text-[#111827]">{news.title}</h1>
           <p className="text-[#6B7280] mb-8">{new Date(news.created_at).toLocaleDateString()}</p>
           {news.cover_image_url && (

@@ -56,9 +56,9 @@ export default function CategoryPage() {
       <Navbar />
 
       {/* Breaking News Ticker */}
-      <div className="bg-[#A855F7] text-white py-2 overflow-hidden relative z-20">
+      <div className="bg-[#4051a4] text-white py-2 overflow-hidden relative z-20">
         <div className="container mx-auto px-4 flex items-center">
-          <span className="font-black uppercase text-sm tracking-wider mr-4 whitespace-nowrap bg-[#7E22CE] px-2 py-1">
+          <span className="font-black uppercase text-sm tracking-wider mr-4 whitespace-nowrap bg-[#2d3a7a] px-2 py-1">
             Exam Breaking
           </span>
           <div className="overflow-hidden relative w-full">
@@ -110,7 +110,7 @@ export default function CategoryPage() {
 
                   <Link
                     href={`/news/${featuredNews.slug}`}
-                    className="inline-block bg-[#A855F7] text-white font-bold uppercase tracking-wider px-8 py-3 hover:bg-purple-700 transition-colors self-start"
+                    className="inline-block bg-[#4051a4] text-white font-bold uppercase tracking-wider px-8 py-3 hover:bg-[#2d3a7a] transition-colors self-start"
                   >
                     Read Full Story
                   </Link>
@@ -159,7 +159,7 @@ export default function CategoryPage() {
 
           {/* Updates Bar (Bottom) */}
           <div className="mt-16">
-            <div className="bg-[#A855F7] text-white px-6 py-3 font-black uppercase tracking-wider text-xl mb-0">
+            <div className="bg-[#4051a4] text-white px-6 py-3 font-black uppercase tracking-wider text-xl mb-0">
               Updates
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-200 bg-white">
@@ -177,7 +177,7 @@ export default function CategoryPage() {
           </div>
 
           {/* Today's Bulletin */}
-          <div className="mt-8 bg-[#9333EA] text-white p-4 text-center font-bold uppercase tracking-widest">
+          <div className="mt-8 bg-[#6675c0] text-white p-4 text-center font-bold uppercase tracking-widest">
             Today's Education Bulletin
           </div>
 

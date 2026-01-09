@@ -9,15 +9,15 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const isActive = (path: string) => {
-    return pathname === path ? 'text-white' : 'text-purple-200 hover:text-white';
+    return pathname === path ? 'text-white' : 'text-[#9e8ce0] hover:text-white';
   };
 
   return (
-    <nav className="bg-[#A855F7] border-b border-purple-600 sticky top-0 z-50 transition-all duration-300 shadow-md">
+    <nav className="bg-[#4051a4] border-b border-[#2d3a7a] sticky top-0 z-50 transition-all duration-300 shadow-md">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-black tracking-tighter hover:opacity-90 transition-opacity flex items-center gap-2">
-            <span className="bg-white text-[#A855F7] px-2 py-1 rounded text-lg shadow-sm">CEIC</span>
+            <span className="bg-white text-[#4051a4] px-2 py-1 rounded text-lg shadow-sm">CEIC</span>
             <span className="text-white">ONLINE</span>
           </Link>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-purple-200 hover:text-white transition-colors"
+            className="md:hidden p-2 text-[#9e8ce0] hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
@@ -57,7 +57,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-purple-600 pt-4 animate-fadeIn">
+          <div className="md:hidden mt-4 pb-4 border-t border-[#2d3a7a] pt-4 animate-fadeIn">
             <div className="flex flex-col space-y-4">
               {['Exams', 'Results', 'Admissions', 'Jobs', 'Scholarships'].map((item) => {
                 const path = `/category/${item.toLowerCase()}`;
@@ -66,7 +66,7 @@ export default function Navbar() {
                     key={item}
                     href={path}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`text-base font-bold uppercase tracking-wide px-2 py-1 rounded-lg ${pathname === path ? 'bg-white/20 text-white' : 'text-purple-200 hover:bg-purple-700 hover:text-white'}`}
+                    className={`text-base font-bold uppercase tracking-wide px-2 py-1 rounded-lg ${pathname === path ? 'bg-white/20 text-white' : 'text-[#9e8ce0] hover:bg-[#2d3a7a] hover:text-white'}`}
                   >
                     {item}
                   </Link>
