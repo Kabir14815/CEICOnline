@@ -17,8 +17,8 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-black tracking-tighter hover:opacity-90 transition-opacity flex items-center gap-2">
-            <span className="bg-white text-[#4051a4] px-2 py-1 rounded text-lg shadow-sm">CEIC</span>
-            <span className="text-white">ONLINE</span>
+            <span className="bg-white text-[#4051a4] px-2 py-1 rounded text-lg shadow-sm">EDU </span>
+            <span className="text-white">News</span>
           </Link>
 
           {/* Desktop Menu */}
