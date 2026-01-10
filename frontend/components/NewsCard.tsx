@@ -22,7 +22,7 @@ export default function NewsCard({ title, slug, category, cover_image_url, creat
             />
           ) : (
             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-400 text-2xl font-bold opacity-50">CEICOnline</span>
+              <span className="text-gray-400 text-2xl font-bold opacity-50">EDU News</span>
             </div>
           )}
 

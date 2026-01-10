@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CEICOnline",
+  title: "EDU News",
   description: "Your trusted source for education news and updates",
 };
 
