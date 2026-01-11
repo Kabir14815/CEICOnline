@@ -1,7 +1,0 @@
---- Environment Variables Check ---
-ADMIN_EMAIL: None
-ADMIN_PASSWORD: None
-Connecting to MongoDB: mongodb+srv://Task:1234@cluster0.lnxh7gs...
-
---- Database Check ---
-Found Admin: admin@example.com
