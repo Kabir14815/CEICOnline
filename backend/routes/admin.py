@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from ..database import db
 from ..models import AdminModel, Token
-from ..auth import verify_password, create_access_token, get_password_hash, get_current_user, SECRET_KEY
+from ..auth import verify_password, create_access_token, get_password_hash, get_current_user, SECRET_KEY, ACCESS_TOKEN_EXPIRE_MINUTES
 from datetime import timedelta
 
 router = APIRouter(
@@ -18,7 +18,7 @@ async def login_for_access_token(admin: AdminModel):
             detail="Incorrect email or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    access_token_expires = timedelta(minutes=1440)
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
         data={"sub": user["email"]}, expires_delta=access_token_expires
     )
