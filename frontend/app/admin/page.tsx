@@ -72,6 +72,14 @@ export default function AdminDashboard() {
 
   const router = useRouter();
 
+  // Authentication check - redirect to login if no token
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/admin/login');
+    }
+  }, [router]);
+
   // ... (existing useEffects)
 
   const fetchNews = async () => {

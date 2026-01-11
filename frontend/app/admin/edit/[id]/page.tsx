@@ -1,13 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import api from '@/lib/api';
 import NewsForm from '@/components/NewsForm';
 
 export default function EditNews() {
   const { id } = useParams();
+  const router = useRouter();
   const [news, setNews] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/admin/login');
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [router]);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -18,10 +29,12 @@ export default function EditNews() {
         console.error('Failed to fetch news', error);
       }
     };
-    if (id) fetchNews();
-  }, [id]);
+    if (id && isAuthenticated) fetchNews();
+  }, [id, isAuthenticated]);
 
-  if (!news) return <div>Loading...</div>;
+  if (!isAuthenticated || !news) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
