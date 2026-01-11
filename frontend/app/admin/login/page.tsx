@@ -14,7 +14,7 @@ export default function AdminLogin() {
     e.preventDefault();
     try {
       const response = await api.post('/admin/login', { email, password });
-      localStorage.setItem('token', response.data.access_token);
+      localStorage.setItem('username', response.data.username);
       router.push('/admin');
     } catch (err: any) {
       console.error(err);

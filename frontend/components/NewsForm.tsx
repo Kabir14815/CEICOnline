@@ -51,8 +51,8 @@ export default function NewsForm({ initialData, isEditing = false }: NewsFormPro
     const data = { title, slug, content, category, status, cover_image_url: coverImageUrl };
 
     try {
-      const token = localStorage.getItem('token');
-      if (!token) {
+      const username = localStorage.getItem('username');
+      if (!username) {
         alert('You are not logged in. Please log in again.');
         router.push('/admin/login');
         return;

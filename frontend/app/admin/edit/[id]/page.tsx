@@ -12,8 +12,8 @@ export default function EditNews() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
+    const username = localStorage.getItem('username');
+    if (!username) {
       router.push('/admin/login');
     } else {
       setIsAuthenticated(true);
