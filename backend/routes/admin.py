@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from ..database import db
 from ..models import AdminModel, Token
-from ..auth import verify_password, create_access_token, get_password_hash
+from ..auth import verify_password, create_access_token, get_password_hash, get_current_user, SECRET_KEY
 from datetime import timedelta
 
 router = APIRouter(
@@ -35,3 +35,9 @@ async def create_seed_admin(admin: AdminModel):
     new_admin = {"email": admin.email, "password": hashed_password}
     await db.admins.insert_one(new_admin)
     return {"message": "Admin created successfully"}
+
+@router.get("/verify")
+async def verify_token(current_user: str = Depends(get_current_user)):
+    """Debug endpoint to verify token is working"""
+    return {"status": "ok", "user": current_user, "secret_key_prefix": SECRET_KEY[:5] + "..."}
+
