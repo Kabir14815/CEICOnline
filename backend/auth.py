@@ -18,11 +18,12 @@ def get_password_hash(password):
     truncated_password = password[:72]
     return pwd_context.hash(truncated_password)
 
-async def get_current_user(username: Optional[str] = Header(None, alias="X-Username")):
+async def get_current_user(x_username: Optional[str] = Header(None)):
     """Simple username-based authentication - checks if username header is present"""
-    if not username:
+    # FastAPI converts x_username parameter to X-Username header automatically
+    if not x_username:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Authentication required",
         )
-    return username
+    return x_username
