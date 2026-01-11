@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 import os
+import uvicorn
 import traceback
 from .routes import news, admin, upload
 from .database import init_db
@@ -16,16 +17,11 @@ app = FastAPI(title="Education News API")
 async def startup_db_client():
     await init_db()
 
-origins = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8000",
-]
+origins = os.getenv("ALLOWED_ORIGINS", "").split(",")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -55,3 +51,7 @@ app.include_router(updates.router)
 @app.get("/")
 async def root():
     return {"message": "Welcome to Education News API"}
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
