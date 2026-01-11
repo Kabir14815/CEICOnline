@@ -1,10 +1,23 @@
+"""
+Authentication utilities for password hashing and verification.
+Login verification only - no route protection.
+"""
 from passlib.context import CryptContext
-from fastapi import Header, HTTPException, status
-from typing import Optional
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-def verify_password(plain_password, hashed_password):
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """
+    Verify a plain password against a hashed password.
+    
+    Args:
+        plain_password: The plain text password to verify
+        hashed_password: The hashed password to compare against
+        
+    Returns:
+        True if password matches, False otherwise
+    """
     try:
         # Truncate password to 72 bytes (bcrypt limit)
         truncated_password = plain_password[:72]
@@ -13,17 +26,17 @@ def verify_password(plain_password, hashed_password):
         print(f"Password verification error: {e}")
         return False
 
-def get_password_hash(password):
+
+def get_password_hash(password: str) -> str:
+    """
+    Hash a password using bcrypt.
+    
+    Args:
+        password: The plain text password to hash
+        
+    Returns:
+        The hashed password string
+    """
     # Truncate password to 72 bytes (bcrypt limit)
     truncated_password = password[:72]
     return pwd_context.hash(truncated_password)
-
-async def get_current_user(x_username: Optional[str] = Header(None)):
-    """Simple username-based authentication - checks if username header is present"""
-    # FastAPI converts x_username parameter to X-Username header automatically
-    if not x_username:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Authentication required",
-        )
-    return x_username
